@@ -1,0 +1,545 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Introduction</title>
+
+		<meta name="description" content="Notes de la conférence">
+		<meta name="author" content="Laurent Helaili">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+                <style>
+                        .reveal section img { background:none; border:none; box-shadow:none; }
+                        .reveal .caption {
+                            position: absolute; 
+                            bottom: 10px;
+                            left: 50%;
+                        }
+                </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                                
+				<section>
+                                        <h3>Workshop <br> arduino / raspberry pi</h3>
+                                        <table style="width:100%; border:none;margin-top:200px;">
+                                                <tr style="border:none;">
+                                                         <td style="border:none;text-align:center;vertical-align:bottom"><img width=100 data-src="./media/intro/cfams-logo-2.jpg"></td>
+                                                         <td style="border:none;text-align:center;vertical-align:bottom"><img width=100 data-src="./media/intro/logoreso.png"></td>
+                                                         <td style="border:none;text-align:center;vertical-align:bottom"><p style="font-size:20px;margin-bottom:0px;">IMMS</p><p style="margin-top:0px;font-size:12px;">Institut Méditerranéen<br>des Métiers du Spectacle</p></td>
+                                                </tr>
+                                        </table>
+                                        <aside class="notes"> Sans doc officiel j'ai fait comme j'ai pu pour les logos :( </aside>
+				</section>
+                                
+				<section>
+                                        <a href="http://reso-nance.org/" data-preview-link>reso-nance.org</a><br>
+                                        <a href="http://reso-nance.org/wiki/accueil" data-preview-link>wiki</a>
+                                        <aside class="notes"><b>next:</b> présentation intervenant </aside>
+                                </section>
+				<section>
+                                        <section><img data-src="./media/intro/escp1.jpg"></section>
+                                        <section><img data-src="./media/intro/ludo2.jpg"></section>
+                                        <section><img data-src="./media/intro/escp3.jpg"></section>
+                                        <section><img data-src="./media/intro/escp2.jpg"></section>
+                                        <section><img data-src="./media/intro/bateau.jpg"></section>
+                                        <section><img data-src="./media/intro/drone.png"></section>
+                                        <section><img data-src="./media/intro/grue.jpg"></section>
+                                        <section><img data-src="./media/intro/Dolly1.jpg"></section>
+				</section>
+                                
+				<section> À vous de parler
+                                        <aside class="notes">quelle boite travaillez, qu'est-ce que vous avez manipulé en électronique, réseau, numérique</aside>
+                                </section>
+                                
+                                <section> Dispositif de scène
+                                        <section>
+                                                <aside class="notes">Spectacle avec élèves de l'ERAC.  Salle divisée en <b>4 section</b> par pendrillons, chaque section divisée en <b>3 espaces</b>.</aside>
+                                                <img width=600 data-src="./media/intro/dispositif.png">
+                                        </section>
+                                        <section><img data-src="./media/intro/telAlcatel.jpg"></section>
+                                        <section>
+                                                <img  width=600 data-src="./media/intro/fonctions.png">
+                                                <aside class="notes"><b>découpage fonctionnel</b><br>2x boutons, 3x pot, 1x interrupteur magnétique<br> 2x arduinos<br>2x pi<br> 2x cartes son<br> 1x splitter</aside>
+                                                <p class="fragment fade-up"> matériel nécessaire ?</p>
+                                        </section>
+                                        <section><img  width=600 data-src="./media/intro/matos.png"><br><img  width=600 data-src="./media/intro/cablage.png"> <aside class="notes"><b>TELECHARGEMENT ARDUINO.cc</b></aside></section>
+                                </section>
+                                
+                                <section>
+                                        <section>
+                                                <aside class="notes"><b>TELECHARGEMENT ARDUINO.cc</b><br>Qu'est ce que l'arduino, qui a déjà bidouillé avec, entendu parler</aside>
+                                                <p><img width=200 data-src="./media/arduino/1200px-Arduino_Logo.svg.png"></p>
+                                        </section>
+                                        <section>cartes électroniques<br><img height=600 data-src="./media/arduino/arduinos.png"><aside class="notes">construites autour d'un microcontrolleur : puce qui execute du code</aside></section>
+                                        <section>langage de programmation<br><img width=800 data-src="./media/arduino/code.png"><aside class="notes">Qui connait un langage ?</aside></section>
+                                        <section>logiciels<br><img width=800 data-src="./media/arduino/IDE0.png"><aside class="notes">variété d'outils rassemblés dans une interface simple multiplateforme (existe aussi en ligne)</aside></section>
+                                        <section>communauté
+                                                <aside class="notes"></aside>
+                                                <p><img width=800 data-src="./media/arduino/forums.png"></p>
+                                                <ul>
+                                                        <li>forums</li>
+                                                        <li>bibliothèques &amp; examples</li>
+                                                        <li>tutoriels</li>
+                                                </ul>
+                                        </section>
+                                        <section>
+                                                <p>À quoi ça sert ?</p>
+                                                <p><small><a href="http://reso-nance.org/chimeres-orchestra/" data-preview-link>Chimère Orchestra <em>(wiki)</em></a><br></small></p>
+                                                <p><small><a href="https://vimeo.com/204155167" target="_blank">Chimere Orchestra <em>(vidéo)</em></a><br></small></p>
+                                                <p><small><a href="https://youtu.be/VcqJYDw2Ceg?t=146" target="_blank">Pschuuu</a><br></small></p>
+                                                <p><small><a href="https://youtu.be/aeucxhh7EmE" target="_blank">spots de scène</a><br></small></p>
+                                                <p><small><a href="https://youtu.be/sscMHJ3QoYg?t=45"  target="_blank">contrôle lumière</a><br></small></p>
+                                        </section>
+				</section>                            
+                                <section>kit
+                                        <section><img data-src="./media/arduino/kit.jpg"></section>
+                                        <section><img data-src="./media/arduino/arduinoVSkeyes.jpg"></section>
+                                        <section><img data-src="./media/arduino/breadboard.png"></section>
+                                        <section>
+                                                <aside class="notes">www.arduino.cc<br> bigboss / 123456<br></aside>
+                                                installation et configuration d'Arduino :
+                                                <ul>
+                                                        <li>afficher les numéros de ligne : <br>
+                                                        <small>menu Arduino &rarr; préférences &rarr; cocher <em>afficher les numéros de ligne</em></small></li>
+                                                        <li>sélectionner la carte <em>Arduino UNO</em> :<br>
+                                                        <small>outils &rarr; carte &rarr; arduino/genuino UNO</small></li>
+                                                        <li>port série :
+                                                                <small><ul><li>brancher l'arduino en USB</li>
+                                                                <li>outils &rarr; port &rarr; sélectionner l'arduino</li></ul></li></small>
+                                                </ul>
+                                        </section>
+				</section>
+                                
+                                <section>Premiers croquis
+                                        <section>Blink
+                                                <p>ouvrir le croquis <em>blink</em>:<br> <small>menu fichier &rarr; exemples &rarr; 01.basics &rarr; blink</small>
+                                                <p>cliquer sur l'icône téléverser (&rarr;)</p>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">code=texte qui a un sens. Essayer taper au hasard et téléverser : marche pas : compilateur.<br>commentaires, setup, loop, parenthèses = fonctions, point-virgule<br>Faire clignoter comme des flashs<br>Faire clignoter 2x rapidement au démarrage</aside>
+                                                <pre><code class="hlc++" data-trim contenteditable style="line-height: 130%;">
+                                                // the setup function runs once when you press reset or power the board
+                                                void setup() {
+                                                // initialize digital pin LED_BUILTIN as an output.
+                                                pinMode(LED_BUILTIN, OUTPUT);
+                                                }
+                                                // the loop function runs over and over again forever
+                                                void loop() {
+                                                digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+                                                delay(1000);                       // wait for a second
+                                                digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+                                                delay(1000);                       // wait for a second
+                                                }
+                                                </code></pre>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">connecter le circuit. Resistances 330R (trait noir ou OOB)</aside>
+                                                <img data-src="./media/arduino/3leds.png">
+                                        </section>
+                                        <section> <p>faire clignoter 3 LEDs l'une après l'autre</p>
+                                                <aside class="notes">faire clignoter les 3 leds l'une après l'autre. J'en ai fait une.</aside>
+                                                <pre><code class="hlc++" data-trim contenteditable style="line-height: 130%;">
+                                                // the setup function runs once when you press reset or power the board
+                                                void setup() {
+                                                // initialize digital pin LED_BUILTIN as an output.
+                                                pinMode(9, OUTPUT);
+                                                }
+                                                // the loop function runs over and over again forever
+                                                void loop() {
+                                                digitalWrite(9, HIGH);   // turn the LED on (HIGH is the voltage level)
+                                                delay(1000);                       // wait for a second
+                                                digitalWrite(9, LOW);    // turn the LED off by making the voltage LOW
+                                                delay(1000);                       // wait for a second
+                                                }
+                                                </code></pre></p>
+                                        </section>
+                                        <section> 
+                                                <aside class="notes">Code commence à être plein de répétition, on pourrait créer notre fonction blink</aside>
+                                                <pre><code class="hlc++" data-trim contenteditable style="font-size: 14px;line-height: 130%;">
+                                                // the setup function runs once when you press reset or power the board
+                                                void setup() {
+                                                // initialize digital pin LED_BUILTIN as an output.
+                                                pinMode(9, OUTPUT);
+                                                pinMode(10, OUTPUT);
+                                                pinMode(11, OUTPUT);
+                                                }
+                                                // the loop function runs over and over again forever
+                                                void loop() {
+                                                digitalWrite(9, HIGH);   // turn the LED on (HIGH is the voltage level)
+                                                delay(1000);                       // wait for a second
+                                                digitalWrite(9, LOW);    // turn the LED off by making the voltage LOW
+                                                delay(1000);                       // wait for a second
+                                                digitalWrite(10, HIGH);   // turn the LED on (HIGH is the voltage level)
+                                                delay(1000);                       // wait for a second
+                                                digitalWrite(10, LOW);    // turn the LED off by making the voltage LOW
+                                                delay(1000);                       // wait for a second
+                                                digitalWrite(11, HIGH);   // turn the LED on (HIGH is the voltage level)
+                                                delay(1000);                       // wait for a second
+                                                digitalWrite(11, LOW);    // turn the LED off by making the voltage LOW
+                                                delay(1000);                       // wait for a second
+                                                }
+                                                </code></pre>
+                                        </section>
+                                        <section>
+                                                <p>lecture d'un potentiomètre</p>
+                                                <img height=600 data-src="./media/arduino/3ledsPot.png">
+                                        </section>
+                                        <section>
+                                                <p>ouvrir le croquis <em>ReadAnalogVoltage</em>:<br> <small>menu fichier &rarr; exemples &rarr; 01.basics &rarr; ReadAnalogVoltage</small>
+                                                <p>cliquer sur l'icône téléverser (&rarr;)</p>
+                                                <p>ouvrir le moniteur série &#9967;</p>
+                                                <p>tourner l'axe du potentiomètre</p>
+                                        </section>
+                                        <section> 
+                                                <aside class="notes">variables et type : assignation par =<br>scope des variable dans une fonction<br> types int, float et void</aside>
+                                                <pre><code class="hlc++" data-trim contenteditable style="font-size: 18px;line-height: 130%;">
+                                                // the setup routine runs once when you press reset:
+                                                void setup() {
+                                                  // initialize serial communication at 9600 bits per second:
+                                                  Serial.begin(9600);
+                                                }
+
+                                                // the loop routine runs over and over again forever:
+                                                void loop() {
+                                                  // read the input on analog pin 0:
+                                                  int sensorValue = analogRead(A0);
+                                                  // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
+                                                  float voltage = sensorValue * (5.0 / 1023.0);
+                                                  // print out the value you read:
+                                                  Serial.println(voltage);
+                                                }
+                                                </code></pre>
+                                        </section>
+                                        <section> 
+                                                <aside class="notes">ajout de deux lignes pour dimmer la LED</aside>
+                                                <pre><code class="hlc++" data-trim contenteditable style="font-size: 16px;line-height: 130%;">
+                                                // the setup routine runs once when you press reset:
+                                                void setup() {
+                                                  // initialize serial communication at 9600 bits per second:
+                                                  Serial.begin(9600);
+                                                  pinMode(9, OUTPUT);
+                                                }
+
+                                                // the loop routine runs over and over again forever:
+                                                void loop() {
+                                                  // read the input on analog pin 0:
+                                                  int sensorValue = analogRead(A0);
+                                                  // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
+                                                  float voltage = sensorValue * (5.0 / 1023.0);
+                                                  // print out the value you read:
+                                                  Serial.println(voltage);
+                                                  analogWrite(9, sensorValue/4); // analogWrite va de 0~255 et non 0~1024
+                                                }
+                                                </code></pre>
+                                        </section>
+                                        <section>
+                                                <img height=600 data-src="./media/arduino/pwm.png">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">allumer LED ON/OFF selon position potard = allumer une led si potard > moitié</aside>
+                                                <p>l'instruction : if/else</p>
+                                                <pre><code class="hlc++" data-trim contenteditable>
+                                                if (CONDITION) { "ce qui est ici sera exécuté" }
+                                                
+                                                if ( age > 18 ) { sert(1, bière); }
+                                                
+                                                if ( age > 18) { sert(1, bière); }
+                                                else { demande("où sont tes parents ?"); }
+                                                </code></pre>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">allumer LED ON/OFF selon position potard = allumer une led si potard > moitié<br> bonus : allumer les leds en séquence selon potard</aside>
+                                                <pre><code class="hlc++" data-trim contenteditable>
+                                                void setup() {
+                                                  pinMode(9, OUTPUT);
+                                                }
+
+                                                // the loop routine runs over and over again forever:
+                                                void loop() {
+                                                  // read the input on analog pin 0:
+                                                  int sensorValue = analogRead(A0);
+                                                  if (sensorValue > 1023/2) {digitalWrite(9, HIGH);}
+                                                  else {digitalWrite(9, LOW);}
+                                                }
+                                                </code></pre>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">type variables, guillemets autour des strings, notation longue/+=/++</aside>
+                                                <p>boucle for</p>
+                                                <pre><code class="hlc++" data-trim contenteditable style="font-size: 15px; width:100%; border:none;">
+                                                for (type variable = valeur départ, condition, action) { "ce qui est ici sera exécuté" }
+                                                
+                                                for (int compteur=1; compteur < 6; compteur++ ) { Serial.println(compteur); }
+                                                Serial.println("fin de la boucle for");
+                                                
+                                                </code></pre>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">allume les trois LEDs ON/OFF selon position potard, cascade if/else<br><b>Ex suivant : dimmer les leds en gardant la séquence : regarder la fonction map()</b></aside>
+                                                <small> allume 3 LEDs en fonction du potentiomètre (I/O) </small>
+                                                <pre><code class="hlc++" data-trim contenteditable style="font-size: 16px;line-height: 130%;">
+                                                void setup() {
+                                                  for (int numPin = 9; numPin <= 11; numPin++) {pinMode(numPin, OUTPUT);}
+                                                }
+
+                                                // the loop routine runs over and over again forever:
+                                                void loop() {
+                                                  // read the input on analog pin 0:
+                                                  int sensorValue = analogRead(A0);
+                                                  if (sensorValue > 1023 / 3) {
+                                                    digitalWrite(10, HIGH);
+                                                    if (sensorValue > 2*1023 / 3) {digitalWrite(11, HIGH);}
+                                                    else {digitalWrite(11, LOW);}
+                                                    }
+                                                    else {
+                                                      digitalWrite(10, LOW);
+                                                      digitalWrite(9, HIGH);
+                                                    }
+                                                  }
+                                                </code></pre>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">allumer LED ON/OFF selon position potard = allumer une led si potard > moitié</aside>
+                                                <p>la fonction <b>map()</b></p>
+                                                <pre><code class="hlc++" data-trim contenteditable>
+                                                map(variable, entréeMIN, entréeMAX, sortieMIN, sortieMAX);
+                                                
+                                                //probabilité d'être malade : proba de 0 à 100%
+                                                //température Temp : de 37 à 39°
+                                                int proba = map(Temp, 37, 39, 0, 100);
+                                                
+                                                // potentiomètre : de 0 à 1024
+                                                // analogWrite : de 0 à 255
+                                                int luminosite = map(analogRead(A0), 0, 1024, 0, 255);
+                                                analogWrite(pin, luminosite);
+                                                </code></pre>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">allume les trois LEDs ON/OFF selon position potard + dimm de 0 à 255, cascade if/else<br><b>FAIRE UN SCHEMA</b></aside>
+                                                <small> allume 3 LEDs en fonction du potentiomètre (dim) </small>
+                                                <pre><code class="hlc++" data-trim contenteditable style="font-size: 14px;line-height: 130%;">
+                                                void setup() {
+                                                  for (int numPin = 9; numPin <= 11; numPin++) {pinMode(numPin, OUTPUT);}
+                                                }
+
+                                                // the loop routine runs over and over again forever:
+                                                void loop() {
+                                                  // read the input on analog pin 0:
+                                                  int sensorValue = analogRead(A0);
+                                                  int luminosite = 0;
+                                                  if (sensorValue > 1023 / 3) {
+                                                    luminosite = map(sensorValue, 1023/3, 2*1023, 0, 255);
+                                                    analogWrite(10, luminosité);
+                                                    if (sensorValue > 2*1023 / 3) {
+                                                            luminosite = map(sensorValue, 2*1023/3, 1023, 0, 255);
+                                                            analogWrite(11, HIGH);}
+                                                    else {digitalWrite(11, LOW);}
+                                                    }
+                                                    else {
+                                                      digitalWrite(10, LOW);
+                                                      luminosite = map(sensorValue, 0, 1023/3, 0, 255);
+                                                      analogWrite(9, luminosite);
+                                                    }
+                                                  }
+                                                </code></pre>
+                                        </section>
+                                        
+                                        <section>
+                                                <aside class="notes">ajout bouton, resistance pullDown</aside>
+                                                <img height=600 data-src="./media/arduino/3ledsPotBut.png">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">debounce, toggle important pour le dispositif final</aside>
+                                                <p>ouvrir le croquis <em>Button</em>:<br> <small>menu fichier &rarr; exemples &rarr; 02.digital &rarr; Button</small>
+                                                <p>adapter le croquis au circuit : <br>
+                                                <small>la LED doit s'allumer quand on appuie sur le bouton</p></small>
+                                                <p class="fragment fade-up">afficher un message sur le moniteur série lors de l'appui</p>
+                                                <p class="fragment fade-up">transformer en toggle<br>
+                                                <small>un appui allume, le suivant éteint</small></p>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">toggle<br><b> DIVISER EN 2 GRPS PAR NIVEAU</b></aside>
+                                                <pre><code class="hlc++" data-trim contenteditable style="font-size: 12px;line-height: 130%;">
+                                                // constants won't change. They're used here to set pin numbers:
+                                                const int buttonPin = 2;     // the number of the pushbutton pin
+                                                const int ledPin =  9;      // the number of the LED pin
+                                                // variables will change:
+                                                int ledState = 0;         // stocke l'état de la led
+
+                                                void setup() {
+                                                  // initialize the LED pin as an output:
+                                                  pinMode(ledPin, OUTPUT);
+                                                  // initialize the pushbutton pin as an input:
+                                                  pinMode(buttonPin, INPUT);
+                                                  Serial.begin(9600);
+                                                }
+                                                
+                                                void loop() {
+                                                  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+                                                  if (digitalRead(buttonPin) == HIGH) { // bouton pressé
+                                                    Serial.println("bouton pressé");
+                                                    if (ledState == 0) {// bouton pressé et led éteinte
+                                                      digitalWrite(ledPin, HIGH); // turn LED on:
+                                                      ledState = 1; // met à jour le statut de la led
+                                                    }
+                                                    else { // bouton pressé et led allumée
+                                                      digitalWrite(ledPin, LOW);// turn LED off:
+                                                      ledState = 0; // met à jour le statut de la led
+                                                    }
+                                                    delay(200); // évite les rebonds
+                                                  }
+                                                }
+                                                </code></pre>
+                                        </section>
+                                </section>
+                                <section>
+                                        <aside class="notes">but : générer des couleur par accéléromètre</aside>
+                                        <small><em>acceleromètre</small></em>
+                                         <section>
+                                                 <img height=600 data-src="./media/arduino/ADXL345.png">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">affiche l'acceleration par axe en g ( = 1g au repos), type float, peut être négatif</aside>
+                                                <p>installer la bibliothèque <em>ADXL345 by Hideki Hamada</em>:<br> <small>menu croquis &rarr; inclure une bibliothèque &rarr; gérer les bibliothèques</small></p>
+                                                <p>ouvrir l'exemple <em>ReadXYZ</em>:<br> <small>menu fichier &rarr; exemples &rarr; ADXL345 &rarr; ReadXYZ</small></p>
+                                                <p class="fragment fade-up">connecter la led RGB</p>
+                                                <p class="fragment fade-up">modifier le croquis pour contrôler un canal de couleur par axe de rotation<br> <small><em> indice : fonction map() </em></small></p>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">but : générer des couleur par accéléromètre</aside>
+                                                <pre><code class="hlc++" data-trim contenteditable style="font-size: 15px;line-height: 130%;">
+                                                        int rouge = 9;
+                                                        int vert = 10;
+                                                        int bleu = 11;
+                                                        int accelMax = 5; // à vérifier dans le moniteur série
+                                                        ...
+                                                        // dans le setup():
+                                                        pinMode(rouge, OUTPUT);
+                                                        pinMode(vert, OUTPUT);
+                                                        pinMode(bleu, OUTPUT);
+                                                        ...
+                                                        // dans la loop() :
+                                                        if (accel.update()) {
+                                                                int accelX = map(accel.getX(), -accelMax, accelMax, 0, 255);
+                                                                int accelY = map(accel.getY(), -accelMax, accelMax, 0, 255);
+                                                                int accelZ = map(accel.getZ(), -accelMax, accelMax, 0, 255);
+                                                                analogWrite(rouge, accelX);
+                                                                analogWrite(vert, accelY);
+                                                                analogWrite(bleu, accelZ);
+                                                        ...
+                                                </code></pre>
+                                        </section>
+                                        <section> 
+                                                <p> télécharger et enregistrer l'exemple : </p>
+                                                <p> aller sur <b>www.aezuri.com/imms</b></p>
+                                                <p> cliquer sur <b>arduino RGB</b></p>
+                                                <p> l'enregistrer sur le bureau et l'ouvrir avec arduino</p>
+                                        </section>
+                                </section>
+                                <section>
+                                        <p>rappel du dispositif de scène</p>
+                                        <section>
+                                                <aside class="notes">détailler pour chaque tel en termes de capteurs et de messages série.<br><b>pas oublier LED rec<br>N'envoyer les messages que quand valeur change</b></aside>
+                                                <img data-src="./media/intro/fonctions.png">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">les + à l'aise dans le groupe répondeur</aside>
+                                                <p><img data-src="./media/arduino/separate.jpg"></p>
+                                                <table style="width:100%; border:none;">
+                                                <tr style="border:none;">
+                                                         <td style="border:none;text-align:center;">groupe <em>sampleur</em></td>
+                                                         <td style="border:none;text-align:center;">groupe <em>répondeur</em></td>
+                                                </tr>
+                                                <tr style="border:none;">
+                                                         <td style="border:none;text-align:center;">espace 1</td>
+                                                         <td style="border:none;text-align:center;">espace 2</td>
+                                                </tr>
+                                                <tr style="border:none;">
+                                                         <td style="border:none;text-align:center;"><small>1 bouton + 1 capteur magnétique</small></td>
+                                                         <td style="border:none;text-align:center;"><small>2 boutons + 3 potentiomètres</small></td>
+                                                </tr>
+                                        </table>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">les + à l'aise dans le groupe répondeur</aside>
+                                                <table style="width:100%; border:none;">
+                                                <tr style="border:none;">
+                                                         <td style="border:none;text-align:center;">groupe <em>sampleur</em></td>
+                                                         <td style="border:none;text-align:center;">groupe <em>répondeur</em></td>
+                                                </tr>
+                                                <tr style="border:none;">
+                                                         <td style="border:none;text-align:center;"><small>combiné décroché = <b>play</b></small></td>
+                                                         <td style="border:none;text-align:center;"><small>bouton play = <b>play</b> si message enregistré, <b>rien</b> sinon</small></td>
+                                                </tr>
+                                                <tr style="border:none;">
+                                                         <td style="border:none;text-align:center;"><small>combiné décroché + bouton = <b>play</b></small></td>
+                                                         <td style="border:none;text-align:center;"><small>bouton rec = <b>rec</b>  + led allumée si pas d'enregistrement en cours</small></td>
+                                                </tr>
+                                                <tr style="border:none;">
+                                                         <td style="border:none;text-align:center;"><small>combiné raccroché (+ bouton) = <b>rien</b></small></td>
+                                                         <td style="border:none;text-align:center;"><small>bouton rec = <b>stop</b>  + led clignotante si enregistrement en cours<br>
+                                                         gestion timeout, pot = <b>pot</b>+ numéro + valeur</small></td>
+                                                </tr>
+                                        </table>
+                                        </section>
+                                </section>
+                                
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: true,
+				slideNumber: false,
+				history: true,
+				fragments: true,
+                                keyboard:true,
+				showNotes: false,
+				autoPlayMedia: true,
+				transition: 'slide',
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+                        Reveal.configure({keyboard: {
+                                13: 'next', // go to the next slide when the ENTER key is pressed
+                                27: function() {}, // do something custom when ESC is pressed
+                                32: function vidplay(){ 
+                                      var video = document.getElementById("video");
+                                      if (video.paused == true) video.play();
+                                      else video.pause();
+                                      }
+                                 }
+                         });
+		</script>
+	</body>
+</html>

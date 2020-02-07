@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>IMMS nov 2018</title>
+
+		<meta name="description" content="Notes de la conférence">
+		<meta name="author" content="Laurent Helaili">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+                <style>
+                        .reveal section img { background:none; border:none; box-shadow:none; }
+                        .reveal .caption {
+                            position: absolute; 
+                            bottom: 10px;
+                            left: 50%;
+                        }
+                </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<!--
+				<section>   </section>
+-->
+				<section><h3>initiation réseau</h3>
+					<p><em><small>la vie sociale des machines</small></em></p>
+                                        <p><img width=200 data-src="./media/reseau/Star-Wars-Poster-C3PO-R2D2-Retro-New-Hope.jpg"></p>
+                                        <aside class="notes"> Sondage main levée qui est capable d'expliquer : addresse IP, MAC, routeur, switch, DHCP, DNS...  </aside>
+				</section>
+                                
+				<section><b>Réseau</b>
+                                        <p>ensemble des machines qui peuvent échanger des données entre-elles</p>
+                                        <p class="fragment fade" data-fragment-index="1"><img width=200 data-src="./media/reseau/binary-data-icon-1.png"><img width=200 data-src="./media/reseau/binary-data-icon-1.png"><img width=200 data-src="./media/reseau/binary-data-icon-1.png"></p>
+                                        <aside class="notes">EX: téléphones + antenne relais = réseau. Toutes machines en lignes (serveurs, ordis, smartphones, objets connectés...) = Internet <br> Données sous forme de paquets binaires. Demander exemples (son, vidéo, contrôle...) Tout ce qui est numérique </aside>
+                                </section>
+                                
+				<section>
+					<aside class="notes"> Quelques ex de matériels son-lumières actuellement utilisés : mic sans fils, routeur DMX, console son, console lumière, line array amplifié, ordi portable.<br><b> Introduire exemple postal </b></aside>
+                                                <table style="width:100%; border:none;">
+                                                        <tr style="border:none;">
+                                                                <td style="border:none;"><img width=200 data-src="./media/reseau/AKG_dms800_d5_vocal_set.png"></td>
+                                                                <td style="border:none;"><img width=200 data-src="./media/reseau/70036_SHADOW_RDS8_PERSP1_FRONT-ID-4026745-2000x1053.png"></td>
+                                                                <td style="border:none;"><img width=200 data-src="./media/reseau/X32_P0ASF_Right_L.png"></td>
+                                                        </tr>
+                                                        <tr style="border:none;">
+                                                                <td><img width=200 data-src="./media/reseau/console-s-avab-congojunior-front.png"></td>
+                                                                <td><img height=200 data-src="./media/reseau/K-LA212-DSP 90-60.png"></td>
+                                                                <td><img width=200 data-src="./media/reseau/fg01.png"></td>
+                                                        </tr>
+                                                </table>
+				</section>
+                                
+				<section> 
+                                        <aside class="notes">Facteur<br>Langue<br>Adresse (plusieurs lignes)</aside>
+                                        <p>communication entre deux machines = </p>
+				<ul>
+                                        <li class="fragment fade-up">connection physique</li>
+                                        <li class="fragment fade-up">même language</li>
+                                        <li class="fragment fade-up">adresse</li>
+                                </ul>
+                                </section>
+                                
+                                <section> <small>connection physique</small>
+                                        <section> 
+                                                <aside class="notes">Sans fil = mobilité, filaire = fiabilité. Manière dont les appareils sont reliés physiquement = topologie réseau <br> Important de faire un plan de scène réseau</aside>
+                                                <p>
+                                                <table style="width:100%; border:none;">
+                                                        <tr style="border:none;">
+                                                               <td style="border:none;">filaire (ethernet)</td>
+                                                               <td style="border:none;">sans fil (wifi)</td>
+                                                               <td class="fragment fade-up" data-fragment-index="1" style="border:none;">les deux</td>
+                                                        </tr>
+                                                        <tr style="border:none;">
+                                                               <td style="border:none;"><img width=200 data-src="./media/reseau/63topology.gif"></td>
+                                                               <td style="border:none;"><img width=200 data-src="./media/reseau/scalablenetwork_v_jw.png"></td>
+                                                               <td class="fragment fade-up" data-fragment-index="1" style="border:none;"><img width=200 data-src="./media/reseau/96489c961f7fef6b731a57de76c2e7be-1.png"></td>
+                                                        </tr>
+                                                        <tr style="border:none;">
+                                                               <td style="border:none;"><img width=200 data-src="./media/reseau/Cat_Ethernet_Cable_obl_600__70473.1448310963.500.659.png"></td>
+                                                               <td style="border:none;"><img width=200 data-src="./media/reseau/ebf49fba-85ac-4de4-b46f-0b9c106b99f3.png"></td>
+                                                               <td class="fragment fade-up" data-fragment-index="1" style="border:none;"></td>
+                                                        </tr>
+                                                </table>
+                                                </p>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">+ de 5 appareils = topo obligatoire. A établir dès la prép, permet de vérifier matos nécessaire. Tous moyens sont bons, logiciels spécialisés jED ou non openoffice, indesign, photoshop, même papier puis photo au smartphone.<br>Doit contenir tous les appareils connectés physiquement, moyens de connection, addresse IP, protocole, mdp...</aside>
+                                                <p>Topologie réseau</p>
+                                                <p><img data-src="./media/reseau/1026-15-Lab_topology_discovered.png"></p>
+                                        </section> 
+                                        <section>
+                                                <aside class="notes">la topologie doit inclure <b>tous</b> les éléments du réseau, y compris sans fil (smartphones, ordis de contrôle...)</aside>
+                                                <p>Topologie réseau mixte filaire/sans fil</p>
+                                                <p><img data-src="./media/reseau/topology3.jpg"></p>
+                                        </section> 
+                                </section>
+                                
+                                <section> <small>même langage</small>
+                                        <section>
+                                                <aside class="notes">Protocole indépendant type de donnée transmise. Protocole tcp/ip est très standard, pas forcément le cas de l'encodage (dante/ravenna)</aside>
+                                                <p>Langue = <b>protocole</b> (TCP/IP)</p>
+                                                <p> protocole &#8800; encodage</p>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">les paquets de données séparent contenant et contenu, exactement comme une enveloppe et sa lettre</aside>
+                                                <p><img data-src="./media/reseau/paquet.png"></p>
+                                                <p class="fragment fragment fade" ><img data-src="./media/reseau/enveloppe.png"></p>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">exemple lettre : envoi de musique sous forme de partition ou tablature, même protocole, encodage différent. Système a l'air compatible, les appareils se communiquent mais le message reste incompris (ESTA-sACN/artnet, ravenna/dante...)</aside>
+                                                <img data-src="./media/reseau/ProtocolVsEncodage.png">
+                                        </section>
+                                </section>
+                                
+                                <section> <small>adresses</small>
+                                        <section>
+                                                <aside class="notes">on place une enveloppe dans une enveloppe. 4 couches en TCP, seules 2 nous intéressent </aside>
+                                                <p>Un appareil &hArr; plusieurs adresses</p>
+                                                <p><img data-src="./media/reseau/matryoschka.png"></p>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">1 MAC par interface, 1 IP par réseau. Pas de connection = pas d'IP</aside>
+                                                <p>adresse MAC <br><small>00:1e:22:0f:a3:bf</small></p>
+                                                <p>adresse IP <br> <small>IPV4 : 192.168.0.1 <br> IPV6 : ::ffff:c0a8:0001 </small></p>
+                                                <p>pour les trouver :<br> <small>mac/linux : <em>ifconfig</em> <br> windows : <em>ipconfig \all</em> </small></p>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">suis-je connecté en ethernet, wifi, les deux ?</aside>
+                                                <img data-src="./media/reseau/ifconfig.png">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">l'IP dépend du réseau qu'on considère. IP locale != IP internet</aside>
+                                                <img data-src="./media/reseau/monip.png">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">l'IP locale est comme un système de boite postale. Le routeur reçoit des deux côtés et redispatch</aside>
+                                                <img data-src="./media/reseau/router.jpg">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">Important <b>différence routeur/switch</b>IP statique du même domaine que les autres (ex 192.168.xx.xx), mais différente. IP internet définie par l'ISP, rien qu'on puisse y faire</aside>
+                                                <p>qui décide de l'adresse IP d'un appareil?</p>
+                                                <ul class="fragment fade-up">
+                                                        <li> IP statique configurée dans l'appareil</li>
+                                                        <li> IP dynamique, assignée par un appareil externe <em>serveur DHCP</em></li>
+                                                </ul>
+                                                <p class="fragment fade-up">les <b>routeurs</b> contiennent un serveur DHCP mais pas les switchs.  <b>Les switchs ne connaissent rien à l'IP</b></p>
+                                        </section>
+                                        <section>
+                                                <aside class="notes">soit un serveur DHCP et un client DHCP, soit IP fixe, soit problème</aside>
+                                                <img data-src="./media/reseau/2dev.png">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">le routeur assigne les IPs</aside>
+                                                <img data-src="./media/reseau/dev-routeur.png">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">idem, le switch est totalement transparent à l'IP</aside>
+                                                <img data-src="./media/reseau/dev-routeur-switch.png">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">soit un seul serveur DHCP et les autres en client DHCP, soit IP fixe, soit problème</aside>
+                                                <img data-src="./media/reseau/dev-switch.png">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">permet de ne pas taper l'ip dans le navigateur mais un nom. Existe aussi en local sur les routeurs.</aside>
+                                                <p>Le <b>DNS</b> est un annuaire d'IPs </p>
+                                                <p>www.google.com &hArr; 216.58.218.228 <br> www.google.fr &hArr; 172.217.5.227 </p>
+                                                <img data-src="./media/reseau/annuaire.jpg">
+                                        </section>
+                                        <section>
+                                                <aside class="notes">Chaque appareil reçoit et envoie des milliers de paquets par secondes. Ports sont comme des couloirs entre la carte réseau et les logiciels. Logiciels bloquent les ports qu'ils utilisent</aside>
+                                                <p>les ports : routent les paquets <b>à l'intérieur de l'appareil</b></p>
+                                                <p>fonctionnent dans les deux sens, peuvent être ouverts ou fermés</p>
+                                                <p><small>souvent notés en face de l'ip : 192.168.0.12:<b>21</b><br> http://www.google.fr = 172.217.5.227:<b>80</b></small></p>
+                                        </section>
+                                </section>
+                                        
+
+				
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: true,
+				slideNumber: false,
+				history: true,
+				fragments: true,
+                                keyboard:true,
+				showNotes: false,
+				autoPlayMedia: true,
+				transition: 'slide',
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+                        Reveal.configure({keyboard: {
+                                13: 'next', // go to the next slide when the ENTER key is pressed
+                                27: function() {}, // do something custom when ESC is pressed
+                                32: function vidplay(){ 
+                                      var video = document.getElementById("video");
+                                      if (video.paused == true) video.play();
+                                      else video.pause();
+                                      }
+                                 }
+                         });
+		</script>
+	</body>
+</html>

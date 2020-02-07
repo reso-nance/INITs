@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>ESP8266 OSC</title>
+
+		<meta name="description" content="support d'INIT ESP8266/OSC">
+		<meta name="author" content="laurent@reso-nance.org">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+                <style>
+                        .reveal section img { background:none; border:none; box-shadow:none; }
+                        .reveal .caption {
+                            position: absolute; 
+                            bottom: 10px;
+                            left: 50%;
+                        }
+                        .col-container{
+							display: flex;
+						}
+						.col{
+							flex: 1;
+						}
+                </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+								
+				<section>
+					<h2>ESP8266 - OSC</h2>
+					<p>Open Sound Control</p>
+				</section>
+				
+				<section>
+					<section>
+					<p><img width=200 data-src="./media/INIT_ESP_OSC/1200px-Arduino_Logo.svg.png"></p>
+					</section>
+					<section>cartes électroniques<br><img height=600 data-src="./media/INIT_ESP_OSC/arduinos.png"><aside class="notes">construites autour d'un microcontrolleur : puce qui execute du code</aside></section>
+					<section>langage de programmation<br><img width=800 data-src="./media/INIT_ESP_OSC/code.png"><aside class="notes">Qui connait un langage ?</aside></section>
+					<section>logiciels<br><img width=800 data-src="./media/INIT_ESP_OSC/IDE0.png"><aside class="notes">variété d'outils rassemblés dans une interface simple multiplateforme (existe aussi en ligne)</aside></section>
+					<section>communauté
+							<aside class="notes"></aside>
+							<p><img width=800 data-src="./media/INIT_ESP_OSC/forums.png"></p>
+							<ul>
+									<li>forums</li>
+									<li>bibliothèques &amp; examples</li>
+									<li>tutoriels</li>
+							</ul>
+					</section>
+					<section>
+						<p><img width=800 data-src="./media/INIT_ESP_OSC/HTB1_5itaLvsK1Rjy0Fiq6zwtXXag.jpg"></p>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<p>Open Sound Control</p>
+						<p><img width=600 data-src="./media/INIT_ESP_OSC/osc-new-14.jpg"></p>
+					</section>
+					<section>
+						<p><ul>Software
+								<li>puredata, maxMSP, ableton Live reaper...</li>
+							<li>resolume, Dlight, millumin</li>
+						</ul></p>
+						<p><ul>Hardware
+							<li>consoles lumières (congo, grandma...)</li>
+							<li>consoles son numériques</li>
+							<li><b>DIY</b> brutebox, SLIC...</li>
+						</ul></p>
+					</section>
+					<section>
+						<h2>protocole réseau</h2>
+							<p>
+									<table style="width:100%; border:none;">
+											<tr style="border:none;">
+												   <td style="border:none;">filaire (ethernet)</td>
+												   <td style="border:none;">sans fil (wifi)</td>
+												   <td style="border:none;">les deux</td>
+											</tr>
+											<tr style="border:none;">
+												   <td style="border:none;"><img width=200 data-src="./media/INIT_ESP_OSC/63topology.gif"></td>
+												   <td style="border:none;"><img width=200 data-src="./media/INIT_ESP_OSC/scalablenetwork_v_jw.png"></td>
+												   <td style="border:none;"><img width=200 data-src="./media/INIT_ESP_OSC/96489c961f7fef6b731a57de76c2e7be-1.png"></td>
+											</tr>
+											<tr style="border:none;">
+												   <td style="border:none;"><img width=200 data-src="./media/INIT_ESP_OSC/Cat_Ethernet_Cable_obl_600__70473.1448310963.500.659.png"></td>
+												   <td style="border:none;"><img width=200 data-src="./media/INIT_ESP_OSC/ebf49fba-85ac-4de4-b46f-0b9c106b99f3.png"></td>
+												   <td style="border:none;"></td>
+											</tr>
+									</table>
+									</p>
+					</section>
+					<section>
+						<p><img width=600 data-src="./media/INIT_ESP_OSC/exOSC.png"></p>
+						<p class="fragment fade-up"><b>addresse</b> : utilisée pour <b>router</b> les messages</p>
+						<p class="fragment fade-up"><b>arguments</b> : autant qu'on veut, différents types</p>
+					</section>
+					<section>
+						<p><img width=800 data-src="./media/INIT_ESP_OSC/b9571cd0-b0df-45aa-8388-96f1fba9874b.jpeg"></p>
+					</section>					<section>
+						<p><img width=800 data-src="./media/INIT_ESP_OSC/Unicast-Broadcast-Multicast.jpg"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>installation de l'IDE arduino</h2>
+						<p>installer <a href="https://www.arduino.cc/">arduino</a></p>
+						<p>installer les <a href="http://reso-nance.org/wiki/materiel/esp8266/accueil#configuration" data-preview-link>paquets pour ESP8266</a></p>
+						<p>installer la <a href="https://github.com/reso-nance/INITs" data-preview-link> librairie OSC</a et le code de l'INIT></p>
+					</section>
+					<section>
+						<p><img width=800 data-src="./media/INIT_ESP_OSC/montage.png"></p>
+					</section>
+					<section>
+						<p>lecture du capteur</p>
+							<pre><code class="hlc++" data-trim contenteditable style="line-height: 130%;">
+								void setup() {
+									Serial.begin(115200); // ouverture du port série
+								}
+
+								void loop() {
+									int valeurActuelle = analogRead(0);
+									Serial.print("valeur du potentiomètre : ");
+									Serial.println(valeurActuelle);
+									delay(100);
+								}
+									</code></pre>
+					</section>
+					<section>
+						<p>lecture intelligente du capteur</p>
+							<pre><code class="hlc++" data-trim contenteditable style="line-height: 130%;">
+									static int tolerance = 2;
+									int valeurPrecedente = 0;
+
+									void setup() {
+										Serial.begin(115200);
+									}
+
+									void loop() {
+										int valeurActuelle = analogRead(0); // lecture du port analogique
+										if (valeurActuelle < valeurPrecedente-tolerance || valeurActuelle > valeurPrecedente+tolerance) { // si la valeur à changée significativement
+											Serial.print("valeur changée : ");
+											Serial.println(valeurActuelle);
+											valeurPrecedente = valeurActuelle; // la tendance d'hier est le vintage d'aujourd'hui
+											delay(5);
+										}
+									}
+									</code></pre>
+					</section>
+					<section>
+						<p>envoi des données en UDP</p>
+							<pre><code class="hlc++" data-trim contenteditable style="line-height: 130%;">
+									#include <ESP8266WiFi.h> // fonctions wifi : connection en station ou point d'accès, addresses IP ...
+									#include <WiFiUdp.h> // création de paquets UDP et envoi sur le réseau
+									
+									static char* nomDuReseau = "malinette"; // attention, sensible à la casse
+									static char* motDePasse = "malinette666"; // idem
+									static const int portUDP = 8000; // port auquel les paquets seront envoyés, doit être identique à celui du récepteur
+									static IPAddress IPcible = IPAddress({10,0,0,255});// addresse à laquelle les messages sont envoyés, ici en broadcast
+									WiFiUDP UDP;
+									
+									void setup() {
+										Serial.begin(115200); // ouverture du port série
+										while (true) { // tant que la connection n'est pas établie, on restera coincé ici
+										Serial.println("\n\nConnection à " + String(nomDuReseau) + " ...");
+										WiFi.mode(WIFI_STA); // mode station : se connecte à un point d'accès existant
+										WiFi.begin(nomDuReseau, motDePasse); // tentative de connection
+										ESP.wdtFeed(); // évite de rebooter l'ESP si l'opération le bloque trop longtemps
+										yield(); // rends la main à l'ESP
+										if ( WiFi.waitForConnectResult() == WL_CONNECTED ) {break;} // si la connection est établie, on sort de la boucle infinie
+										}
+										Serial.print("connecté, addresse IP : ");
+										Serial.println(WiFi.localIP()); // addresse IP attribuée à l'ESP par le routeur wifi auquel il se connecte
+										UDP.begin(portUDP);
+									}
+									
+									void loop() {
+										Serial.println("coucou !");
+										UDP.beginPacket(IPcible, portUDP);
+										UDP.write("coucou !");
+										UDP.endPacket();
+										yield(); // rends la main à l'ESP
+										delay(1000); // le paquet sera envoyé toutes les secondes
+									}
+											
+									</code></pre>
+					</section>
+					<section>
+						<p>envoi des données en OSC</p>
+							<pre><code class="hlc++" data-trim contenteditable style="line-height: 130%;">
+									#include <ESP8266WiFi.h> // fonctions wifi : connection en station ou point d'accès, addresses IP ...
+									#include <WiFiUdp.h> // création de paquets UDP et envoi sur le réseau
+									#include <OSCMessage.h> // gestion du protocol OSC en envoi et réception
+									
+									static char* nomDuReseau = "malinette"; // attention, sensible à la casse
+									static char* motDePasse = "malinette666"; // idem
+									static const int portOSC = 8000; // port auquel les paquets seront envoyés, doit être identique à celui du récepteur
+									static IPAddress IPcible = IPAddress({10,0,0,255});// addresse à laquelle les messages sont envoyés, ici en broadcast
+									static int tolerance = 2; // différence minimale entre la la valeur actuelle et la précédente à partir de laquelle les messages seront envoyés
+									int valeurPrecedente = 0; // stockera la valeur précédente
+									WiFiUDP UDP;
+									
+									void setup() {
+										Serial.begin(115200); // ouverture du port série
+										while (true) { // tant que la connection n'est pas établie, on restera coincé ici
+										Serial.println("\n\nConnection à " + String(nomDuReseau) + " ...");
+										WiFi.mode(WIFI_STA); // mode station : se connecte à un point d'accès existant
+										WiFi.begin(nomDuReseau, motDePasse); // tentative de connection
+										ESP.wdtFeed(); // évite de rebooter l'ESP si l'opération le bloque trop longtemps
+										yield(); // rends la main à l'ESP
+										if ( WiFi.waitForConnectResult() == WL_CONNECTED ) {break;} // si la connection est établie, on sort de la boucle infinie
+										}
+										Serial.print("connecté, addresse IP : ");
+										Serial.println(WiFi.localIP()); // addresse IP attribuée à l'ESP par le routeur wifi auquel il se connecte
+									}
+									
+									void loop() {
+										int valeurActuelle = analogRead(0); // lecture du port analogique
+										if (valeurActuelle < valeurPrecedente-tolerance || valeurActuelle > valeurPrecedente+tolerance) { // si la valeur à changée significativement
+										envoieOSC(valeurActuelle);
+										valeurPrecedente = valeurActuelle; // la tendance d'hier est le vintage d'aujourd'hui
+										}
+										yield(); // rends la main à l'ESP
+										delay(2); // une courte sieste lui permettra de travailler plus longtemps
+									}
+									
+									void envoieOSC(int valeur) {
+										Serial.print("envoie la valeur "); Serial.println(valeur);
+										static char* addresseOSC = "/monOSC"; // l'addresse OSC doit correspondre à ce que le destinataire attends
+										OSCMessage* message = new OSCMessage(addresseOSC); // création d'un nouveau message vide
+										message->add((float) valeur/1024.0f);// on ajoute la valeur sous forme d'un float entre 0 et 1
+										UDP.beginPacket(IPcible, portOSC); // création d'un paquet UDP vide
+										message->send(UDP); // envoi du message OSC en UDP
+										UDP.endPacket(); // le paquet est refermé (sans ruban)
+										delete(message); // on nettoie derrière soi pour éviter de mauvaises surprises
+										ESP.wdtFeed();
+										yield();
+									}
+											
+									</code></pre>
+					</section>
+				</section>
+				<section>
+					<h2>pour aller plus loin</h2>
+					<p>code de l'<a href="https://github.com/reso-nance/INIT-ESP8266-OSC">INIT</a></p>
+					<p>code de <a href="https://github.com/reso-nance/">nos projets</a></p>
+					<p>l'incontournable <a href="http://reso-nance.org/wiki/">wiki</a></p>
+					</section>
+
+				
+				
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: true,
+				slideNumber: false,
+				history: true,
+				fragments: true,
+                                keyboard:true,
+				showNotes: false,
+				autoPlayMedia: true,
+				transition: 'slide',
+				minScale: 0.8,
+				maxScale: 1.5,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+                        Reveal.configure({keyboard: {
+                                13: 'next', // go to the next slide when the ENTER key is pressed
+                                27: function() {}, // do something custom when ESC is pressed
+                                32: function vidplay(){ 
+                                      var video = document.getElementById("video");
+                                      if (video.paused == true) video.play();
+                                      else video.pause();
+                                      }
+                                 }
+                         });
+            //~ setTimeout(Reveal.navigateNext, 1000);
+            //~ setTimeout(Reveal.navigateNext, 2000);
+            //~ setTimeout(Reveal.navigateNext, 3000);
+		</script>
+	</body>
+</html>
