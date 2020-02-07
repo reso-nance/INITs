@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="fr"></html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>potentiomètre</title>
+    </head>
+    <body>
+        <script>
+            setInterval(function(){ // tout ce qui se trouve ici sera répété indéfiniment
+                fetch("/pot") // on envoie une requête GET au serveur
+                .then(response => response.text()) // on récupère le texte de la réponse
+                .then((response) => {
+                    document.getElementById("potValue").textContent = response // on remplace le texte de l'élément dont l'id est potValue par celui de la réponse
+                    })
+                .catch(err => console.log(err)) // si une erreur se produit, on l'affiche dans la console
+            }, 500) // à répéter toutes les 500 millisecondes (2x par seconde)
+        </script>
+        <p>valeur du potentiomètre : <span id="potValue"></span></p>
+    </body>
+</html> 
