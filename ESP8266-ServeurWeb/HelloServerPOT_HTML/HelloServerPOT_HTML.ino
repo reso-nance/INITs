@@ -36,7 +36,7 @@ void handleLedOFF() {
 
 void handlePotentiometer() {
   unsigned int potValue = analogRead(A0);
-  server.send(200, "text/plain", "valeur du potentiometre :" + String(potValue));
+  server.send(200, "text/plain", String(potValue));
 }
 
 void handleHTMLpage() {
