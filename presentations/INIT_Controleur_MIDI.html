@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>contrôleur MIDI-USB</title>
+
+		<meta name="description" content="support d'INIT contrôleur MIDI-USB">
+		<meta name="author" content="laurent@reso-nance.org">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+                <style>
+                        .reveal section img { background:none; border:none; box-shadow:none; }
+                        .reveal .caption {
+                            position: absolute; 
+                            bottom: 10px;
+                            left: 50%;
+                        }
+                        .col-container{
+							display: flex;
+						}
+						.col{
+							flex: 1;
+						}
+                </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+								
+				<section>
+					<h2>contrôleur MIDI-USB</h2>
+					<p>à base d'arduino</p>
+				</section>
+				
+				<section>
+					<section>Qu'est-ce que le MIDI ?
+						<p><img width=400 data-src="./media/INIT_CONTROLEUR_MIDI/jpn5.png"><img width=600 data-src="./media/INIT_CONTROLEUR_MIDI/P6_Module_Front__49650.1481276490.png"></p>
+					</section>
+					<section>
+                    <p><img data-src="./media/INIT_CONTROLEUR_MIDI/midi-logo-250x250_bc8592c4-eefa-4c4f-8d39-f61537e5fbdf_300x.png"></p>
+                    <p>1983 : un protocole</p>
+                    <ul>
+                        <li class="fragment fade-up">musical</li>
+                        <li class="fragment fade-up">unifié</li>
+                        <li class="fragment fade-up">numérique</li>
+                    </ul>
+                    </section>
+                    <section>
+                        <p>1985 : <b>Atari ST</b>: le séquenceur MIDI</p>
+                        <p><img height=350 data-src="./media/INIT_CONTROLEUR_MIDI/Atari-mega-ste.jpg"><img data-src="./media/INIT_CONTROLEUR_MIDI/ims-atari.png"></p>
+                    </section>
+                    <section>
+                        <p>un matériel spécifique</p>
+                        <p><img data-src="./media/INIT_CONTROLEUR_MIDI/Midi_ports_and_cable.jpg"</p>
+                    </section>
+                    <section>
+                        <p>2020 : contrôleurs MIDI <b>USB</b> </p>
+                        <p><img width=350 data-src="./media/INIT_CONTROLEUR_MIDI/48318.png"><img width=350 data-src="./media/INIT_CONTROLEUR_MIDI/X-TOUCH-COMPACT_P0B3L_Top-Front_L__14368.png"></p>
+                        <p><img width=350 data-src="./media/INIT_CONTROLEUR_MIDI/s-l1600.png"><img width=350 data-src="./media/INIT_CONTROLEUR_MIDI/hwp_numark_nmmxt3.png"></p>
+                    </section>                    
+                    <section>
+                        <p>2020 : séquenceurs MIDI <b>USB</b> </p>
+                        <p><img height=250 data-src="./media/INIT_CONTROLEUR_MIDI/suite10-02.png.jpg">    <img height=250 data-src="./media/INIT_CONTROLEUR_MIDI/image-line-fl-studio-20-all-plugin-bundle.jpg.png"></p>
+                        <p><img height=250 data-src="./media/INIT_CONTROLEUR_MIDI/pd-iem-pure-data-10584.jpg">  <img height=250 data-src="./media/INIT_CONTROLEUR_MIDI/Cubase6_Key_Editor_piano_roll_with_Note_Expression.png"></p>
+                    </section>
+					<section>
+                        <p>contrôleurs DIY</p>
+                        <p><img height=300 data-src="./media/INIT_CONTROLEUR_MIDI/4faders-1.jpg"><img height=300 data-src="./media/INIT_CONTROLEUR_MIDI/dsc00188.jpg"></p>
+                    </section>
+                </section>
+
+                <section>
+                    <section><img width=500 data-src="./media/INIT_CONTROLEUR_MIDI/1200px-Arduino_Logo.svg.png"></section>
+                    <section>
+                        <h3>installation de l'IDE arduino</h3>
+                        <ul>
+                            <li>à télécharger sur <a href="https://www.arduino.cc/">arduino.cc</a></li>
+                            <li>installation de la bibliothèque <b>midiUSB</b> : <br><em>croquis -> inclure une bibliothèque -> gérer les bibliothèques ->chercher "MIDIUSB" -> installer</em></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <p>tous les arduinos ne permettent pas le MIDI-USB</p>
+                        <p>micro, leonardo : <em>USB host</em></p>
+                    </section>
+                    <section>
+                        <img data-src="./media/INIT_CONTROLEUR_MIDI/montage.png">
+                    </section>
+                </section>
+
+                <section>
+                    <section>le protocole MIDI (simplifié):
+                        <p>constitué de <b>messages</b> : </p>
+                        <ul>
+                            <li class="fragment fade-up">type : note on | note off | control change </li>
+                            <li class="fragment fade-up">valeur : de 0 à 127 , représente la note ou le numéro du CC</li>
+                            <li class="fragment fade-up">vélocité : de 0 à 127 </li>
+                            <li class="fragment fade-up">canal : de 1 à 16 (ou omni)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <p>exemple</p>
+                        <p>type : <b>noteON</b>, valeur: <b>60</b>, vélocité : <b>127</b>, canal : <b>1</b></p>
+                        <p>joue la note C4 à plein volume sur le canal 1</p>
+                    </section>
+                    <section>
+                        <p>la valeur des messages <em>note ON/OFF</em> représente au total <b>plus de 10 octaves</b>, par demi-ton</p>
+                        <img data-src="./media/INIT_CONTROLEUR_MIDI/logic-midi-note-numbers.png">
+                    </section>
+                    <section>
+                        <p>il existe aussi 128 <em>control change</em>, certains sont assignés par défaut</p>
+                        <p>CC#7 = volume, CC#10 = panoramique...</p>
+                    </section>
+
+                <section>
+						<p>un code dérivé de l'exemple</p>
+							<pre><code class="hlc++" data-trim contenteditable style="line-height: 130%;">
+                                #include "MIDIUSB.h"
+                                #define CHANNEL 0x1
+                                #define DEADBAND 5 // 0~1023 
+                                #define MIDI_NOTE 60
+                                #define CC_NUMBER 10
+                                
+                                static const int buttonPin = 3;
+                                static const int potentiometerPin = A0;
+                                bool buttonLastState = true;
+                                int potCurrentValue = 0;
+                                int potLastValue = 0;
+                                
+                                
+                                void noteOn(byte pitch, byte velocity) {
+                                  midiEventPacket_t noteOn = {0x09, 0x90 | CHANNEL, pitch, velocity};
+                                  MidiUSB.sendMIDI(noteOn);
+                                }
+                                
+                                void noteOff(byte pitch) {
+                                  midiEventPacket_t noteOff = {0x08, 0x80 | CHANNEL, pitch, 0x0};
+                                  MidiUSB.sendMIDI(noteOff);
+                                }
+                                
+                                void controlChange(byte control, byte value) {
+                                  midiEventPacket_t event = {0x0B, 0xB0 | CHANNEL, control, value};
+                                  MidiUSB.sendMIDI(event);
+                                }
+                                
+                                void setup() {
+                                  // setting up the digital inputs
+                                  pinMode(buttonPin, INPUT_PULLUP);
+                                  buttonLastState = digitalRead(buttonPin);
+                                  // setting up the analog inputs
+                                  potCurrentValue = map(analogRead(potentiometerPin), 0, 1023, 0, 127);
+                                }
+                                
+                                void loop() {
+                                
+                                  //  Reading analog inputs
+                                  potCurrentValue = map(analogRead(potentiometerPin), 0,  1023, 0, 127);
+                                  if (potLastValue < potCurrentValue - DEADBAND || potLastValue > potCurrentValue + DEADBAND) {
+                                    byte ccValue = potCurrentValue;
+                                    controlChange(CC_NUMBER, ccValue);
+                                    delay(2);
+                                  }
+                                  potLastValue = potCurrentValue;
+                                
+                                  //  Reading digital inputs
+                                  bool currentState = digitalRead(buttonPin);
+                                  // input has been pulled LOW
+                                  if (currentState == LOW && buttonLastState == HIGH) {
+                                    noteOn((byte) MIDI_NOTE, (byte) 127);
+                                    delay(2);
+                                  }
+                                  // input has been pulled HIGH
+                                  if (currentState == HIGH && buttonLastState == LOW) {
+                                    noteOff((byte) MIDI_NOTE);
+                                    delay(2);
+                                  }
+                                  buttonLastState = currentState;
+                                  MidiUSB.flush();
+                                  delay(5);
+                                }
+						    </code></pre>
+                    </section>
+                </section>
+            
+				<section>
+					<h2>pour aller plus loin</h2>
+					<p>code de l'<a href="https://github.com/reso-nance/">INIT</a></p>
+					<p>code de <a href="https://github.com/reso-nance/">nos projets</a></p>
+					<p>l'incontournable <a href="http://reso-nance.org/wiki/">wiki</a></p>
+				</section>
+
+				
+				
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: true,
+				slideNumber: false,
+				history: true,
+				fragments: true,
+                                keyboard:true,
+				showNotes: false,
+				autoPlayMedia: true,
+				transition: 'slide',
+				minScale: 0.8,
+				maxScale: 1.5,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+                        Reveal.configure({keyboard: {
+                                13: 'next', // go to the next slide when the ENTER key is pressed
+                                27: function() {}, // do something custom when ESC is pressed
+                                32: function vidplay(){ 
+                                      var video = document.getElementById("video");
+                                      if (video.paused == true) video.play();
+                                      else video.pause();
+                                      }
+                                 }
+                         });
+            //~ setTimeout(Reveal.navigateNext, 1000);
+            //~ setTimeout(Reveal.navigateNext, 2000);
+            //~ setTimeout(Reveal.navigateNext, 3000);
+		</script>
+	</body>
+</html>
